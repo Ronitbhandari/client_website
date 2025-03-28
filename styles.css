@@ -38,6 +38,7 @@ body {
     margin-left: 20px;
     height: 100px; /* Increase the height to make the logo bigger */
     width: auto; /* Maintain aspect ratio */
+    border-radius: 15%;
   }
   
   #content {
@@ -309,9 +310,115 @@ body {
   .nav-links li {
     margin: 10px 0;
     text-align: center;
+    margin-left: 20px;
   }
 
   .nav-links li a {
     font-size: 1.2rem;
   }
+}
+
+/* Navbar Styling */
+nav ul li a {
+  color: rgb(255, 255, 255);
+  text-decoration: none; /* Remove default underline */
+  font-size: 18px;
+  text-align: left;
+  transition: transform 0.3s ease, color 0.3s ease; /* Smooth transition for zoom and color */
+  display: inline-block; /* Required for transform to work */
+  position: relative; /* Required for pseudo-elements */
+  padding: 5px 0; /* Add padding for overline and underline */
+}
+
+nav ul li a::before,
+nav ul li a::after {
+  content: ''; /* Required for pseudo-elements */
+  position: absolute;
+  width: 100%;
+  height: 2px; /* Thickness of the overline and underline */
+  background-color: #fbfcfb; /* Color of the overline and underline */
+  transform: scaleX(0); /* Initially hidden */
+  transition: transform 0.5s ease; /* Smooth transition for the lines */
+}
+
+nav ul li a::before {
+  top: 0; /* Position the overline at the top */
+  left: 0;
+  transform-origin: left; /* Animation starts from the left */
+}
+
+nav ul li a::after {
+  bottom: 0; /* Position the underline at the bottom */
+  left: 0;
+  transform-origin: right; /* Animation starts from the right */
+}
+
+nav ul li a:hover {
+  transform: scale(1.1); /* Zoom in effect */
+  color: #f7fcf9; /* Change color on hover (optional) */
+}
+
+nav ul li a:hover::before,
+nav ul li a:hover::after {
+  transform: scaleX(1); /* Show the overline and underline on hover */
+}
+
+/* WhatsApp Icon Hover Effect */
+.whatsapp-effect {
+  display: flex;
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.whatsapp-effect li {
+  list-style: none;
+}
+
+.whatsapp-effect li a {
+  width: 80px;
+  height: 80px;
+  background-color: #fff;
+  text-align: center;
+  line-height: 80px;
+  font-size: 35px;
+  margin: 0 10px;
+  display: block;
+  border-radius: 50%;
+  position: relative;
+  overflow: hidden;
+  border: 3px solid #fff;
+  z-index: 1;
+  transition: transform 0.5s ease;
+}
+
+.whatsapp-effect li a .icon {
+  position: relative;
+  color: #262626;
+  transition: 0.5s;
+  z-index: 3;
+}
+
+.whatsapp-effect li a:hover .icon {
+  color: #fff;
+  transform: rotateY(360deg);
+}
+
+.whatsapp-effect li a:before {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #25d366; /* WhatsApp green color */
+  transition: 0.5s;
+  z-index: 2;
+}
+
+.whatsapp-effect li a:hover:before {
+  top: 0;
 }

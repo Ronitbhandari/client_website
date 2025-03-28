@@ -172,8 +172,19 @@ document.addEventListener("DOMContentLoaded", function () {
                 </div>
               `;
               break;
-          case "#contact":
-              content.innerHTML = "<h1>Contact Us</h1><p>Get in touch with us.</p>";
+            case "#contact":
+              content.innerHTML = `
+                  <h1>Contact Us</h1>
+                  <p>Get in touch with us.</p>
+                  <!-- WhatsApp Icon -->
+                  <ul class="whatsapp-effect">
+                      <li>
+                          <a href="https://wa.me/yourphonenumber" target="_blank">
+                              <i class="fab fa-whatsapp icon"></i>
+                          </a>
+                      </li>
+                  </ul>
+              `;
               break;
           default:
               content.innerHTML = "<h1>Page Not Found</h1>";
